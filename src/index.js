@@ -7,13 +7,13 @@ const MovieDetails = require('./MovieDetails');
 
 const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
 
-  let entry = term.match(/^yify\s(.+)/);
-  entry = entry || term.match(/(.+)\syify$/);
+  let entry = term.match(/^ymovie\s(.+)/);
+  entry = entry || term.match(/(.+)\symovie$/);
   if (entry) {
     let movies = '';
     
     display({
-      id: 'yify',
+      id: 'ymovie',
       icon: icon,
       title: `Searching... ${entry[1]} movie`
     })
@@ -21,7 +21,7 @@ const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
     const response = yield fetch(API + entry[1]);
     const finalResponse = yield response.json();
     
-    hide('yify');
+    hide('ymovie');
 
     if (finalResponse.data.movie_count === 0) {
       display({
@@ -47,6 +47,6 @@ const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
 module.exports = {
   name: 'Search Movies to Download on YTS website',
   icon: icon,
-  keyword: 'yify',
+  keyword: 'ymovie',
   fn: plugin
 }
