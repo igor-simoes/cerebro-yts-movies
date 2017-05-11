@@ -19,6 +19,7 @@ module.exports = {
   },
   target: 'electron-renderer',
   module: {
+    noParse: [/iconv-loader.js/],
     rules: [{
       test: /\.jsx?$/,
       use: {
@@ -40,6 +41,7 @@ module.exports = {
       use: {
         loader: 'url-loader'
       }
-    }]
+    },
+    ]
   }
 };
