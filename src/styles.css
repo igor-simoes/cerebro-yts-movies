@@ -1,0 +1,51 @@
+.divImage {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details {
+  text-align: center;
+  font-size: 48;
+  color: white;
+}
+
+.control {
+    display: flex;
+}
+
+.preview {
+  max-width: 100%;
+}
+
+.insibile {
+  visibility: none;
+  width: 0;
+  height: 0;
+}
+
+.divTorrents {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.divDownload {
+    border-color: grey;
+    border-width: 20;
+    border-style: solid;
+    text-align: center;
+}
+
+.divRow {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
