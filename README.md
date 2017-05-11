@@ -11,15 +11,19 @@
 ![Screenshot](...)
 
 ## How to Use
-* On Cerebro app, type `yts` + `movie_title`. (e.g `yts titanic`)
+* On Cerebro app, type `ymovie` + `movie_title`. (e.g `ymovie chaplin`)
 * Select which movies you see to preview data or click to go to YTS official website
 
-![Screenshot](...)
+![Screenshot](https://image.ibb.co/gmbWAk/cerebro_yts_movies.gif)
 
 ## Utils
 
 * [Cerebro](http://github.com/KELiON/cerebro) – Cerebro Main App
 * [YTS - YIFY Official Website](https://yts.ag) – Here you will be able to browse and download YIFY movies in excellent 720p, 1080p and 3D quality, all at the smallest file size. Only here: YTS Movies Torrents.
+
+## Extras
+* I don't have relation with YIFY or YTS webpage. I get the data throught their api. [Documentation](https://yts.ag/api)
+* The `yts` command was replace to `ymovie` because YouTube plugin recognize and match with `yts` term (maybe is an issue).
 
 ## License
 
