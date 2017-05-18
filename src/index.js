@@ -3,7 +3,7 @@ const co = require('co');
 const icon = require('./assets/logo-YTS.png');
 const API = 'https://yts.ag/api/v2/list_movies.json?query_term=';
 const React = require('react');
-const MovieDetails = require('./MovieDetails');
+const Preview = require('./Preview');
 const { memoize } = require('cerebro-tools');
 
 const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
@@ -30,7 +30,7 @@ const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
           title: movie.title_long,
           icon: icon,
           subtitle: movie.url,
-          getPreview: () => <MovieDetails movie={movie} />,
+          getPreview: () => <Preview movie={movie} />,
           onSelect: (event) => actions.open(movie.url)
       }));
 
