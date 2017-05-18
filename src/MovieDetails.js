@@ -1,6 +1,6 @@
 const React = require('react');
 const styles = require('./styles.css');
-const trackerList = [
+const trackers = [
     'http://track.one:1234/announce',
     'udp://track.two:80',
     'udp://tracker.opentrackr.org:1337/announce',
@@ -8,17 +8,14 @@ const trackerList = [
     'dp://tracker.leechers-paradise.org:6969',
     'udp://p4p.arenabg.com:1337',
     'udp://tracker.internetwarriors.net:1337'
-]
-
-const trackers = trackerList.map((track) => track).join('&tr=');
+].map((track) => track).join('&tr=');
 
 module.exports = ({ movie }) => {
     let displayName = movie.title;
 
     let torrents = movie.torrents.map((torrent) => {
         let hash = torrent.hash;
-        let dn = `&dn=${displayName}&tr=`;
-        let magnetLink = 'magnet:?xt=urn:btih:' + hash + dn + trackers;
+        let magnetLink = `magnet:?xt=urn:btih:${hash}&dn=${displayName}&tr=`+ trackers;
         return (
             <div key={hash} className={styles.divDownload}>
                 <p>Quality: {torrent.quality}</p>
