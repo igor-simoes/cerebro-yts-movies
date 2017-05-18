@@ -2,7 +2,7 @@
   "name": "cerebro-yts-movies",
   "version": "1.0.0",
   "description": "A plugin for Cerebro to search YIFY movies on https://yts.ag",
-  "repository": "https://github.com/igor-simoes/cerebro-yts-movies.git",
+  "repository": "igor-simoes/cerebro-yts-movies",
   "license": "MIT",
   "author": {
     "name": "Igor Simões",
@@ -41,9 +41,6 @@
     "webpack": "2.1.0-beta.27"
   },
   "dependencies": {
-    "co": "^4.6.0",
-    "electron-fetch": "^1.0.0",
-    "file-loader": "^0.10.1",
-    "json-loader": "^0.5.4"
+    "co": "^4.6.0"
   }
 }
