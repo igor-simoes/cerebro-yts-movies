@@ -4,9 +4,10 @@ const icon = require('./assets/logo-YTS.png');
 const API = 'https://yts.ag/api/v2/list_movies.json?query_term=';
 const React = require('react');
 const MovieDetails = require('./MovieDetails');
+const { memoize } = require('cerebro-tools');
 
 const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
-
+  
   let entry = term.match(/^ymovie\s(.+)/);
   entry = entry || term.match(/(.+)\symovie$/);
   if (entry) {
@@ -19,28 +20,29 @@ const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
     })
     
     const response = yield fetch(API + entry[1]);
-    const finalResponse = yield response.json();
-    
+    const finalResponse = yield response.json();    
     hide('ymovie');
 
-    if (finalResponse.data.movie_count === 0) {
+    if (finalResponse.data.movie_count > 0) {
+      const movies = finalResponse.data.movies;
+      
+      const results = movies.map( movie => ({
+          title: movie.title_long,
+          icon: icon,
+          subtitle: movie.url,
+          getPreview: () => <MovieDetails movie={movie} />,
+          onSelect: (event) => actions.open(movie.url)
+      }));
+
+      display(results);
+    }
+    else {
       display({
         title: 'Movie Not Found',
         icon: icon,
         getPreview: () => <h1>Movie Not Found</h1>
-      })
-    }
-
-    finalResponse.data.movies.map(co.wrap(function* (movie) {
-      return display({
-        title: movie.long_title,
-        icon: icon,
-        subtitle: movie.url,
-        getPreview: () => <MovieDetails movie={movie} />,
-        onSelect: (event) => actions.open(movie.url)
-      });
-    
-  }))
+      });    
+    }    
   };
 })
 
