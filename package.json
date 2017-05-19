@@ -1,6 +1,6 @@
 {
   "name": "cerebro-yts-movies",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin for Cerebro to search YIFY movies on https://yts.ag",
   "repository": "igor-simoes/cerebro-yts-movies",
   "license": "MIT",
