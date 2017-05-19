@@ -9,7 +9,7 @@
     "email": "isol2@cin.ufpe.br"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "scripts": {
     "build": "webpack && babili dist -d dist --compact --no-comments",
