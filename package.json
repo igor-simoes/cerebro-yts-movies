@@ -9,11 +9,12 @@
     "email": "isol2@cin.ufpe.br"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=4"
   },
   "scripts": {
     "build": "webpack && babili dist -d dist --compact --no-comments",
     "debug": "./scripts/debug",
+    "debug:windows": "scripts\\debug.bat",
     "prepublish": "rm -rf ./dist && npm run build"
   },
   "main": "dist/index.js",

@@ -1,54 +1,32 @@
 'use strict';
 const co = require('co');
-const icon = require('./assets/logo-YTS.png');
-const API = 'https://yts.ag/api/v2/list_movies.json?query_term=';
-const React = require('react');
-const Preview = require('./Preview');
-const { memoize } = require('cerebro-tools');
+const Renders = require('./Renders');
 
+/**
+ * Cerebro plugin to find and download movies torrent from yts website
+ *
+ * @param  {String} options.term
+ * @param  {Function} options.display
+ * @param  {Function} options.actions
+ * @param  {Function} options.hide
+ */
 const plugin = co.wrap(function* plugin ({term, display, actions, hide}) {
+
+  let entryPage = term.match(/^ymovie p\s\d{1,3}$/);
+  let entry = term.match(/^ymovie\s(.+)/) || term.match(/(.+)\symovie$/);
   
-  let entry = term.match(/^ymovie\s(.+)/);
-  entry = entry || term.match(/(.+)\symovie$/);
-  if (entry) {
-    let movies = '';
-    
-    display({
-      id: 'ymovie',
-      icon: icon,
-      title: `Searching... ${entry[1]} movie`
-    })
-    
-    const response = yield fetch(API + entry[1]);
-    const finalResponse = yield response.json();    
-    hide('ymovie');
-
-    if (finalResponse.data.movie_count > 0) {
-      const movies = finalResponse.data.movies;
-      
-      const results = movies.map( movie => ({
-          title: movie.title_long,
-          icon: icon,
-          subtitle: movie.url,
-          getPreview: () => <Preview movie={movie} />,
-          onSelect: (event) => actions.open(movie.url)
-      }));
-
-      display(results);
-    }
-    else {
-      display({
-        title: 'Movie Not Found',
-        icon: icon,
-        getPreview: () => <h1>Movie Not Found</h1>
-      });    
-    }    
-  };
-})
+  if (entryPage) {
+    Renders.movieByPage(entry, display, actions, hide)
+  }
+  
+  if (entry && !(entryPage)) {
+    Renders.movieByTitle(entry, display, actions, hide)
+  }
+});
 
 module.exports = {
-  name: 'Search Movies to Download on YTS website',
-  icon: icon,
+  name: 'Search Torrent Movies to Download on YTS website',
+  icon: Renders.icon,
   keyword: 'ymovie',
   fn: plugin
 }
