@@ -8,13 +8,18 @@
 * Search `plugins yts`
 * Click on Install button
 
-![Screenshot](...)
-
 ## How to Use
+
+### Search Movie by Title
 * On Cerebro app, type `ymovie` + `movie_title`. (e.g `ymovie chaplin`)
 * Select which movies you see to preview data or click to go to YTS official website
 
 ![Screenshot](https://image.ibb.co/gmbWAk/cerebro_yts_movies.gif)
+
+### Search Movie by Page
+* On Cerebro app, type `ymovie p` + `page_number`. (e.g `ymovie p 2`)
+* Select which movies you see to preview data or click to go to YTS official website
+![Screenshot](http://image.ibb.co/eYEMha/cerebro_yts_movies_page.gif)
 
 ## Utils
 
