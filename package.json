@@ -2,18 +2,19 @@
   "name": "cerebro-yts-movies",
   "version": "1.0.0",
   "description": "A plugin for Cerebro to search YIFY movies on https://yts.ag",
-  "repository": "https://github.com/igor-simoes/cerebro-yts-movies.git",
+  "repository": "igor-simoes/cerebro-yts-movies",
   "license": "MIT",
   "author": {
     "name": "Igor Simões",
     "email": "isol2@cin.ufpe.br"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=4"
   },
   "scripts": {
     "build": "webpack && babili dist -d dist --compact --no-comments",
     "debug": "./scripts/debug",
+    "debug:windows": "scripts\\debug.bat",
     "prepublish": "rm -rf ./dist && npm run build"
   },
   "main": "dist/index.js",
@@ -41,9 +42,6 @@
     "webpack": "2.1.0-beta.27"
   },
   "dependencies": {
-    "co": "^4.6.0",
-    "electron-fetch": "^1.0.0",
-    "file-loader": "^0.10.1",
-    "json-loader": "^0.5.4"
+    "co": "^4.6.0"
   }
 }
