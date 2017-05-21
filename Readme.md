@@ -5,7 +5,7 @@
 ## How to Install
 * Launch cerebro
 * Open Plugin menu
-* Search `plugins yts`
+* Search for`yts movies`
 * Click on Install button
 
 ## How to Use
