@@ -1,6 +1,7 @@
 # Cerebro YTS Movies Plugin
 
 ### This plugin was developed to search YIFY Movies to download on [YTS Official Website](https://yts.ag)
+### NPM: [cerebro-yts-movies](https://www.npmjs.com/package/cerebro-yts-movies)
 
 ## How to Install
 * Launch cerebro
