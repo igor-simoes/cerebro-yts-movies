@@ -1,4 +1,5 @@
 # Cerebro YTS Movies Plugin
+[![HitCount](http://hits.dwyl.io/igor-simoes/cerebro-yts-movies.svg)](http://hits.dwyl.io/igor-simoes/cerebro-yts-movies)
 
 ### This plugin was developed to search YIFY Movies to download on [YTS Official Website](https://yts.ag)
 ### NPM: [cerebro-yts-movies](https://www.npmjs.com/package/cerebro-yts-movies)
